@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import "./Nav.css";
 
 const Nav = () => {
@@ -10,12 +11,29 @@ const Nav = () => {
     </div>
 
     <nav className="nav-center">
-      <ul className="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Gallery</a></li>
-      </ul>
+<ul className="nav-links">
+  <li>
+    <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+      Home
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}>
+      Menu
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>
+      Contact
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
+      Gallery
+    </NavLink>
+  </li>
+</ul>
+
     </nav>
 
     <div className="nav-right">
