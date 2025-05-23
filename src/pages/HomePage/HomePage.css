@@ -1,0 +1,26 @@
+.homepage {
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  background-color: #f2ebe3;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+.about,
+.highlights {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.highlights ul {
+  list-style: none;
+  padding: 0;
+}
+.highlights li {
+  margin: 0.5rem 0;
+}
