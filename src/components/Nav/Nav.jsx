@@ -1,28 +1,31 @@
-import { Link } from 'react-router-dom';
-import './Nav.css';
+import React from "react";
+import "./Nav.css";
 
-function Nav() {
+const Nav = () => {
   return (
-    <nav className="nav">
-      <div className="nav-section-left">
-        <ul >
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/menu">Menu</Link></li>
-        </ul>
-      </div>
+   <header className="nav">
+  <div className="nav-grid">
+    <div className="nav-left">
+      <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />
+    </div>
 
-      <div className="nav-section center">
-        <Link to="/"><img src="/images/Logo1.png" alt="Logo" className="logo" /></Link>
-      </div>
-
-      <div className="nav-section-right">
-        <ul>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/gallery">Gallery</Link></li>
-        </ul>
-      </div>
+    <nav className="nav-center">
+      <ul className="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Gallery</a></li>
+      </ul>
     </nav>
+
+    <div className="nav-right">
+      <span className="phone">📞 (651) 555-1234</span>
+      <a href="https://facebook.com" target="_blank" className="fb-button" rel="noreferrer">f</a>
+    </div>
+  </div>
+</header>
+
   );
-}
+};
 
 export default Nav;

@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage/HomePage';
 import Footer from '../components/Footer/Footer';
 import './App.css';
 
+
 function App() {
   return (
     <Router>
