@@ -1,0 +1,17 @@
+.reviews {
+  padding: 2rem;
+  background: #fff8f0;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+.review {
+  margin-bottom: 1.5rem;
+}
+
+.review p {
+  margin: 0.3rem 0;
+  color: #444;
+}
