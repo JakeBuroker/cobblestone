@@ -1,12 +1,13 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Nav.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+
 
 const Nav = () => {
   return (
     <header className="nav">
       <div className="nav-grid">
-        {/* Left: Contact Info */}
         <div className="nav-left">
           <div className="contact-info">
             <p>4760 Washington Square</p>
@@ -15,12 +16,10 @@ const Nav = () => {
           </div>
         </div>
 
-        {/* Center: Logo */}
         <div className="nav-center">
           <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />
         </div>
 
-        {/* Right: Nav Links */}
         <nav className="nav-right">
           <ul className="nav-links">
             <li>
@@ -43,6 +42,16 @@ const Nav = () => {
                 Gallery
               </NavLink>
             </li>
+            <li  className="fb-container">
+  <a
+    href="https://www.facebook.com/yourpage" // replace with your café’s page
+    target="_blank"
+    rel="noreferrer"
+    className="fb-icon">
+    <FontAwesomeIcon icon={faFacebookSquare} />
+  </a>
+</li>
+
           </ul>
         </nav>
       </div>

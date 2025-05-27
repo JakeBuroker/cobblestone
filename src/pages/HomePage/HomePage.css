@@ -1,41 +1,27 @@
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
-  margin-left: 500px;
-  margin-top: 15px;
-}
-
-.hero-image {
-  width: 800px;
-  height: 100%;
-  object-fit: cover;
-  border: #333 3px solid;
-}
-
-.hero-caption {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+.hero {
+  height: 50vh;
+  background-image: url('/images/0fd7cb_aa647b4e97434d6d9df4ee084efd8231~mv2.avif'); /* Place image in public/images/ */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  font-family: "Trebuchet MS", sans-serif;
+  text-align: center;
 }
 
-.prev-btn,
-.next-btn {
-  position: absolute;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.6);
-  border: none;
-  font-size: 2rem;
-  padding: 0 1rem;
-  cursor: pointer;
-  z-index: 2;
+.hero-heading {
+  font-size: 3rem;
+  max-width: 800px;
+}
+
+.content {
+  padding: 4rem 0rem;
+  font-family: "Trebuchet MS", sans-serif;
   color: #333;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background-color: #f8f4ef;
+  text-align: center;
 }
-
-.prev-btn { left: 1rem; }
-.next-btn { right: 1rem; }
