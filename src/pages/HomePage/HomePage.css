@@ -1,26 +1,41 @@
-.homepage {
-  font-family: sans-serif;
-  padding: 2rem;
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin-left: 500px;
+  margin-top: 15px;
 }
 
-.hero {
-  text-align: center;
-  background-color: #f2ebe3;
-  padding: 3rem 1rem;
-  margin-bottom: 2rem;
-  border-radius: 12px;
+.hero-image {
+  width: 800px;
+  height: 100%;
+  object-fit: cover;
+  border: #333 3px solid;
 }
 
-.about,
-.highlights {
-  max-width: 600px;
-  margin: 0 auto 2rem;
+.hero-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
-.highlights ul {
-  list-style: none;
-  padding: 0;
+.prev-btn,
+.next-btn {
+  position: absolute;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  font-size: 2rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  z-index: 2;
+  color: #333;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.highlights li {
-  margin: 0.5rem 0;
-}
+
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }

@@ -1,49 +1,54 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./Nav.css";
+import './Nav.css';
 
 const Nav = () => {
   return (
-   <header className="nav">
-  <div className="nav-grid">
-    <div className="nav-left">
-      <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />
-    </div>
+    <header className="nav">
+      <div className="nav-grid">
+        {/* Left: Contact Info */}
+        <div className="nav-left">
+          <div className="contact-info">
+            <p>4760 Washington Square</p>
+            <p>White Bear Lake, MN 55110</p>
+            <p>(651) 429-6793</p>
+          </div>
+        </div>
 
-    <nav className="nav-center">
-<ul className="nav-links">
-  <li>
-    <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
-      Home
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}>
-      Menu
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>
-      Contact
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
-      Gallery
-    </NavLink>
-  </li>
-</ul>
+        {/* Center: Logo */}
+        <div className="nav-center">
+          <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />
+        </div>
 
-    </nav>
-
-    <div className="nav-right">
-      <span className="phone">📞 (651) 555-1234</span>
-      <a href="https://facebook.com" target="_blank" className="fb-button" rel="noreferrer">f</a>
-    </div>
-  </div>
-</header>
-
+        {/* Right: Nav Links */}
+        <nav className="nav-right">
+          <ul className="nav-links">
+            <li>
+              <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Contact
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Gallery
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
 export default Nav;
+
