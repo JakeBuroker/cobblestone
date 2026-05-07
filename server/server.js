@@ -12,9 +12,6 @@ app.use(cors({
 
 const PORT = process.env.PORT || 5001;
 
-// Route Includes
-const reviewsRouter = require('./routes/reviews.router');
-
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -16,10 +16,11 @@ const Nav = () => {
           </div>
         </div>
 
+          <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
         <div className="nav-center">
-          <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />
+          <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />            
         </div>
-
+</NavLink>
         <nav className="nav-right">
           <ul className="nav-links">
             <li>
@@ -37,11 +38,11 @@ const Nav = () => {
                 Contact
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
                 Gallery
               </NavLink>
-            </li>
+            </li> */}
             <li  className="fb-container">
   <a
     href="https://www.facebook.com/yourpage" // replace with your café’s page

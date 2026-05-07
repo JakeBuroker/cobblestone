@@ -32,51 +32,54 @@ const Home = () => {
       </section>
 
       {/* HOURS / LOCATION */}
-{/* HOURS / LOCATION */}
-<section className="content-block reverse hours-location-section">
-  <div className="images">
-    <img
-      src="/images/52248125492_9384570133_b.jpg"
-      alt="Cafe Exterior"
-      className="main-image"
-    />
-  </div>
-  <div className="text">
-    <h2>Hours & Location</h2>
-    <p><strong>Address:</strong> 4760 Washington Square, White Bear Lake, MN</p>
-    <p> <strong>Phone:</strong> (651) 429-6793</p>
-    <p> <strong>Open:</strong> 7 AM – 3 PM</p>
+      <section className="content-block reverse hours-location-section">
+        <div className="images">
+          <img
+            src="/images/52248125492_9384570133_b.jpg"
+            alt="Cafe Exterior"
+            className="main-image"
+          />
+        </div>
+        <div className="text">
+          <h2>Hours & Location</h2>
+          <div className="location-details">
+            <p>
+              <strong>Address:</strong> 4760 Washington Square, White Bear Lake,
+              MN
+            </p>
+            <p>
+              <strong>Phone:</strong> (651) 429-6793
+            </p>
+            <p>
+              <strong>Open:</strong> 7 AM – 3 PM
+            </p>
+          </div>
 
-<div className="map-wrapper">
-
-  <iframe
-    title="Map to Cobblestone Café"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.0282134758922!2d-93.008888!3d45.085221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b2d0e996108a15%3A0x331dc4d0fa18494d!2sCobblestone%20Cafe!5e0!3m2!1sen!2sus!4v1748386419499!5m2!1sen!2sus"
-    width="100%"
-    height="300"
-    style={{
-      border: 0,
-      borderRadius: '12px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-       
-    }}
-    loading="lazy"
-    allowFullScreen=""
-  
-  ></iframe>
-  <a
-  href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="directions-button"
->
-  Get Directions
-</a>
-
-  </div>
-
-  </div>
-</section>
+          <div className="map-wrapper">
+            <iframe
+              title="Map to Cobblestone Café"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.0282134758922!2d-93.008888!3d45.085221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b2d0e996108a15%3A0x331dc4d0fa18494d!2sCobblestone%20Cafe!5e0!3m2!1sen!2sus!4v1748386419499!5m2!1sen!2sus"
+              width="100%"
+              height="300"
+              style={{
+                border: 0,
+                borderRadius: "8px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+              }}
+              loading="lazy"
+              allowFullScreen=""
+            ></iframe>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="directions-button"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </section>
 
 
       {/* MENU PREVIEW */}
