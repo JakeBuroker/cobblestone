@@ -23,12 +23,84 @@
   background: rgba(42, 28, 18, 0.38);
 }
 
-.hero-heading {
+.hero-content {
   position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.35rem;
+}
+
+.hero-heading {
   max-width: 850px;
   font-size: clamp(2.25rem, 4vw, 3.65rem);
   line-height: 1.12;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.5);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  padding: 0.28rem 0.42rem;
+  background-color: rgba(255, 250, 244, 0.92);
+  border: 1px solid rgba(255, 250, 244, 0.72);
+  border-radius: 4px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.46rem 1rem;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: none;
+  transition: color 0.2s ease;
+}
+
+.hero-button + .hero-button {
+  border-left: 1px solid rgba(47, 36, 29, 0.18);
+}
+
+.hero-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero-button-primary {
+  background-color: transparent;
+  color: #008080;
+}
+
+.hero-button-primary:hover {
+  background-color: transparent;
+  color: #005f5f;
+}
+
+.hero-button-secondary {
+  background-color: transparent;
+  color: #2f241d;
+}
+
+.hero-button-secondary:hover {
+  background-color: transparent;
+  color: #008080;
+}
+
+.hero-button-ghost {
+  background-color: transparent;
+  color: #2f241d;
+}
+
+.hero-button-ghost:hover {
+  background-color: transparent;
+  color: #008080;
 }
 
 /* ===== SHARED SECTION WRAPPER ===== */
@@ -61,6 +133,7 @@
 .main-image {
   width: 100%;
   max-width: 480px;
+  height: 360px;
   aspect-ratio: 4 / 3;
   border-radius: 8px;
   object-fit: cover;
@@ -111,23 +184,33 @@
 
 /* ===== BUTTON STYLES ===== */
 .menu-link,
-.learn-more-button {
-  display: inline-block;
+.learn-more-button,
+.order-link {
+  display: inline-flex;
+  align-items: center;
   margin-top: 1rem;
-  padding: 0.72rem 1.35rem;
-  background-color: #008080;
-  color: #fff;
+  padding: 0.46rem 0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 128, 128, 0.32);
+  color: #008080;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 0.95rem;
   font-weight: 700;
-  box-shadow: 0 8px 18px rgba(0, 128, 128, 0.17);
-  transition: background-color 0.3s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .menu-link:hover,
-.learn-more-button:hover {
-  background-color: #005f5f;
+.learn-more-button:hover,
+.order-link:hover {
+  border-color: #008080;
+  color: #005f5f;
+}
+
+.order-link {
+  margin-left: 1.1rem;
 }
 
 /* ===== 4-IMAGE GRID (MENU SECTION) ===== */
@@ -188,21 +271,25 @@
 }
 
 .directions-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 1rem;
-  padding: 0.68rem 1.5rem;
-  background-color: #008080;
-  color: #fff;
+  padding: 0.46rem 0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 128, 128, 0.32);
+  color: #008080;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 0;
   font-weight: 700;
-  transition: background-color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
   font-size: 0.95rem;
-  box-shadow: 0 8px 18px rgba(0, 128, 128, 0.17);
+  box-shadow: none;
 }
 
 .directions-button:hover {
-  background-color: #005f5f;
+  border-color: #008080;
+  color: #005f5f;
 }
 
 
@@ -233,6 +320,7 @@
 
   .main-image {
     max-width: none;
+    height: 360px;
   }
 
   .hours-location-section {
@@ -245,12 +333,34 @@
     min-height: 42vh;
   }
 
+  .hero-actions {
+    width: min(100%, 260px);
+    flex-direction: column;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+
+  .hero-button + .hero-button {
+    border-left: 0;
+    border-top: 1px solid rgba(47, 36, 29, 0.18);
+  }
+
+  .order-link {
+    margin-left: 0;
+  }
+
   .images-grid {
     grid-template-columns: 1fr;
   }
 
   .grid-img {
     height: 220px;
+  }
+
+  .main-image {
+    height: 280px;
   }
 
   .map-wrapper iframe {

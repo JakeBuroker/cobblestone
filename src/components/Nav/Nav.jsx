@@ -3,24 +3,38 @@ import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 
+const doordashUrl =
+  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
 
 const Nav = () => {
   return (
     <header className="nav">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <div className="nav-grid">
         <div className="nav-left">
           <div className="contact-info">
             <p>4760 Washington Square</p>
             <p>White Bear Lake, MN 55110</p>
-            <p>(651) 429-6793</p>
+            <a href="tel:16514296793">(651) 429-6793</a>
+            <p>Open Daily: 7 AM – 2 PM</p>
           </div>
         </div>
 
-          <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
-        <div className="nav-center">
-          <img src="/images/Logo1.png" alt="Cobblestone Café Logo" className="logo" />            
-        </div>
-</NavLink>
+        <NavLink to="/" end className="logo-link" aria-label="Cobblestone Café home">
+          <div className="nav-center">
+            <img
+              src="/images/logo-512.png"
+              alt="Cobblestone Café Logo"
+              className="logo"
+              width="512"
+              height="430"
+              decoding="async"
+            />
+          </div>
+        </NavLink>
+
         <nav className="nav-right">
           <ul className="nav-links">
             <li>
@@ -38,21 +52,32 @@ const Nav = () => {
                 Contact
               </NavLink>
             </li>
+            <li>
+              <a
+                href={doordashUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="order-nav-link"
+              >
+                Order Online
+              </a>
+            </li>
             {/* <li>
               <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
                 Gallery
               </NavLink>
             </li> */}
-            <li  className="fb-container">
-  <a
-    href="https://www.facebook.com/yourpage" // replace with your café’s page
-    target="_blank"
-    rel="noreferrer"
-    className="fb-icon">
-    <FontAwesomeIcon icon={faFacebookSquare} />
-  </a>
-</li>
-
+            <li className="fb-container">
+              <a
+                href="https://www.facebook.com/cobblestonecafemn"
+                target="_blank"
+                rel="noreferrer"
+                className="fb-icon"
+                aria-label="Cobblestone Café on Facebook"
+              >
+                <FontAwesomeIcon icon={faFacebookSquare} />
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -61,4 +86,3 @@ const Nav = () => {
 };
 
 export default Nav;
-

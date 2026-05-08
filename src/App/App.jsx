@@ -1,6 +1,9 @@
-import { BrowserRouter as Router, Routes, Route,NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from '../components/Nav/Nav';
 import HomePage from '../pages/HomePage/HomePage';
+import MenuPage from '../pages/MenuPage/MenuPage';
+import ContactPage from '../pages/ContactPage/ContactPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import Footer from '../components/Footer/Footer';
 import './App.css';
 
@@ -11,6 +14,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </Router>

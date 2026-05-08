@@ -1,4 +1,8 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
+
+const doordashUrl =
+  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
 
 function Footer() {
   return (
@@ -8,29 +12,35 @@ function Footer() {
           <h4>Cobblestone Café</h4>
           <p>4760 Washington Square</p>
           <p>White Bear Lake, MN 55110</p>
-          <p>(651) 429-6793</p>
-          <p>Open Daily: 7 AM – 3 PM</p>
           <p>
-            <a href="mailto:cobblestonecafe@example.com">
-              cobblestonecafe@example.com
-            </a>
+            <a href="tel:16514296793">(651) 429-6793</a>
           </p>
+          <p>Open Daily: 7 AM – 2 PM</p>
         </div>
 
         <div className="footer-nav">
           <h4>Quick Links</h4>
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
+          <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
           {/* <a href="/gallery">Gallery</a> */}
-          <a href="/contact">Contact</a>
+          <Link to="/contact">Contact</Link>
         </div>
 
         <div className="footer-social">
-          <h4>Follow Us</h4>
+          <h4>Order & Follow</h4>
+          <a
+            href={doordashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Order Cobblestone Café on DoorDash"
+          >
+            Order on DoorDash
+          </a>
           <a
             href="https://www.facebook.com/cobblestonecafemn"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit Cobblestone Café on Facebook"
           >
             Facebook
           </a>
@@ -38,6 +48,7 @@ function Footer() {
             href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Get directions to Cobblestone Café on Google Maps"
           >
             Get Directions
           </a>
@@ -45,7 +56,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2025 Cobblestone Café. All rights reserved.</p>
+        <p>© 2026 Cobblestone Café. All rights reserved.</p>
         <p>Website by Jake Buroker</p>
       </div>
     </footer>

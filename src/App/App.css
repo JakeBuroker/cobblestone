@@ -12,3 +12,8 @@ html, body {
   overflow-y: scroll;
   background-color: #f8f4ef;;
 }
+
+a:focus-visible {
+  outline: 3px solid #008080;
+  outline-offset: 4px;
+}

@@ -1,14 +1,43 @@
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 import GoogleReviews from "../../components/GoogleReviews/GoogleReviews";
 
+const doordashUrl =
+  "https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/";
+
 const Home = () => {
   return (
-    <div>
+    <main id="main-content">
       {/* HERO */}
       <header className="hero">
-        <h1 className="hero-heading">
-          Welcome to Cobblestone Café — Fresh Coffee, Local Flavor
-        </h1>
+        <div className="hero-content">
+          <h1 className="hero-heading">
+            Welcome to Cobblestone Café — Fresh Coffee, Local Flavor
+          </h1>
+          <div className="hero-actions">
+            <a
+              href={doordashUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-button hero-button-primary"
+              aria-label="Order Cobblestone Café on DoorDash"
+            >
+              Order on DoorDash
+            </a>
+            <Link to="/menu" className="hero-button hero-button-secondary">
+              View Menu
+            </Link>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-button hero-button-ghost"
+              aria-label="Get directions to Cobblestone Café on Google Maps"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
       </header>
 
       {/* OUR STORY */}
@@ -16,8 +45,12 @@ const Home = () => {
         <div className="images">
           <img
             src="/images/8d5b13da0ec52802dc87fa96f56e9d65.jpg"
-            alt="Interior Shot"
+            alt="Cobblestone Café mug on a breakfast table"
             className="main-image"
+            width="1440"
+            height="1677"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="text">
@@ -36,8 +69,12 @@ const Home = () => {
         <div className="images">
           <img
             src="/images/52248125492_9384570133_b.jpg"
-            alt="Cafe Exterior"
+            alt="Cobblestone Café storefront in downtown White Bear Lake"
             className="main-image"
+            width="1024"
+            height="683"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="text">
@@ -51,7 +88,7 @@ const Home = () => {
               <strong>Phone:</strong> (651) 429-6793
             </p>
             <p>
-              <strong>Open:</strong> 7 AM – 3 PM
+              <strong>Open:</strong> 7 AM – 2 PM
             </p>
           </div>
 
@@ -74,6 +111,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="directions-button"
+              aria-label="Get directions to Cobblestone Café on Google Maps"
             >
               Get Directions
             </a>
@@ -91,25 +129,62 @@ const Home = () => {
             malts — there’s something for everyone. Come in hungry, leave full
             and happy.
           </p>
-          <a href="/menu" className="menu-link">
+          <Link to="/menu" className="menu-link">
             See the Full Menu
+          </Link>
+          <a
+            href={doordashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="order-link"
+            aria-label="Order Cobblestone Café on DoorDash"
+          >
+            Order on DoorDash
           </a>
         </div>
         <div className="images-grid">
-          <img src="/images/roll.jpg" alt="Pancakes" className="grid-img" />
-          <img src="/images/caption.jpg" alt="Sandwich" className="grid-img" />
+          <img
+            src="/images/roll.jpg"
+            alt="Fresh pastry served at Cobblestone Café"
+            className="grid-img"
+            width="180"
+            height="180"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="/images/caption.jpg"
+            alt="Eggs Benedict with hash browns"
+            className="grid-img"
+            width="1467"
+            height="1100"
+            loading="lazy"
+            decoding="async"
+          />
           <img
             src="/images/unnamed (1).webp"
-            alt="Latte Art"
+            alt="Pancakes with syrup and toast"
             className="grid-img"
+            width="1360"
+            height="1020"
+            loading="lazy"
+            decoding="async"
           />
-          <img src="/images/unnamed.webp" alt="Pastry" className="grid-img" />
+          <img
+            src="/images/unnamed.webp"
+            alt="Breakfast plate with hash browns, eggs, bacon, and toast"
+            className="grid-img"
+            width="1360"
+            height="1020"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
       {/* CUSTOMER REVIEWS */}
       <GoogleReviews />
-    </div>
+    </main>
   );
 };
 
