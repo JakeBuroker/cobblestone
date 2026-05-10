@@ -4,6 +4,9 @@ import GoogleReviews from "../../components/GoogleReviews/GoogleReviews";
 
 const doordashUrl =
   "https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/";
+const facebookUrl = "https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/";
+const facebookFeedUrl =
+  "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100042647630381&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true";
 
 const Home = () => {
   return (
@@ -11,9 +14,18 @@ const Home = () => {
       {/* HERO */}
       <header className="hero">
         <div className="hero-content">
+          <p className="hero-kicker">White Bear Lake Cafe & Malt Shoppe</p>
           <h1 className="hero-heading">
-            Welcome to Cobblestone Café — Fresh Coffee, Local Flavor
+            Cobblestone Café
           </h1>
+          <p className="hero-copy">
+            Breakfast, lunch, coffee, and classic malt shop favorites served
+            daily in downtown White Bear Lake.
+          </p>
+          <div className="hero-meta" aria-label="Cafe hours and location">
+            <span>Open Daily 7 AM – 2 PM</span>
+            <span>4760 Washington Square</span>
+          </div>
           <div className="hero-actions">
             <a
               href={doordashUrl}
@@ -54,6 +66,7 @@ const Home = () => {
           />
         </div>
         <div className="text">
+          <p className="section-kicker">Family-owned local favorite</p>
           <h2>Our Story</h2>
           <p>
             Nestled in the heart of White Bear Lake, Cobblestone Café has served
@@ -78,18 +91,21 @@ const Home = () => {
           />
         </div>
         <div className="text">
+          <p className="section-kicker">Visit us</p>
           <h2>Hours & Location</h2>
-          <div className="location-details">
-            <p>
-              <strong>Address:</strong> 4760 Washington Square, White Bear Lake,
-              MN
-            </p>
-            <p>
-              <strong>Phone:</strong> (651) 429-6793
-            </p>
-            <p>
-              <strong>Open:</strong> 7 AM – 2 PM
-            </p>
+          <div className="location-details" aria-label="Cobblestone Cafe visit details">
+            <div>
+              <span>Address</span>
+              <strong>4760 Washington Square, White Bear Lake, MN</strong>
+            </div>
+            <div>
+              <span>Phone</span>
+              <a href="tel:16514296793">(651) 429-6793</a>
+            </div>
+            <div>
+              <span>Hours</span>
+              <strong>Open Daily 7 AM – 2 PM</strong>
+            </div>
           </div>
 
           <div className="map-wrapper">
@@ -123,6 +139,7 @@ const Home = () => {
       {/* MENU PREVIEW */}
       <section className="content-block reverse menu-preview">
         <div className="text">
+          <p className="section-kicker">Breakfast, lunch & malts</p>
           <h2>What’s on the Menu</h2>
           <p>
             From hearty breakfasts to fresh, handcrafted lunches and classic
@@ -179,6 +196,48 @@ const Home = () => {
             loading="lazy"
             decoding="async"
           />
+        </div>
+      </section>
+
+      {/* FACEBOOK */}
+      <section className="facebook-section" aria-labelledby="facebook-heading">
+        <div className="facebook-copy">
+          <p className="section-kicker">Follow along</p>
+          <h2 id="facebook-heading">Find Us on Facebook</h2>
+          <p>
+            Follow Cobblestone Café for recent posts, updates, specials, and
+            local café moments.
+          </p>
+          <a
+            href={facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="facebook-link"
+            aria-label="Follow Cobblestone Café on Facebook"
+          >
+            Follow on Facebook
+          </a>
+        </div>
+
+        <div className="facebook-feed-card">
+          <iframe
+            title="Cobblestone Café Facebook feed"
+            src={facebookFeedUrl}
+            width="500"
+            height="640"
+            style={{ border: 0, overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"
+          ></iframe>
+          <div className="facebook-feed-fallback">
+            <span>Facebook Page</span>
+            <strong>Latest posts open on Facebook</strong>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
+              View Updates
+            </a>
+          </div>
         </div>
       </section>
 

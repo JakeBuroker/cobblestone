@@ -3,6 +3,7 @@ import './Footer.css';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
+const facebookUrl = 'https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/';
 
 function Footer() {
   return (
@@ -37,7 +38,7 @@ function Footer() {
             Order on DoorDash
           </a>
           <a
-            href="https://www.facebook.com/cobblestonecafemn"
+            href={facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Cobblestone Café on Facebook"

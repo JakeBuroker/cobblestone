@@ -1,9 +1,13 @@
 import '../PageStyles.css';
 
+const doordashUrl =
+  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
+
 function ContactPage() {
   return (
     <main id="main-content" className="page-shell">
-      <section className="page-hero">
+      <section className="page-hero contact-hero">
+        <p className="menu-kicker">Visit Cobblestone</p>
         <h1>Contact</h1>
         <p>
           Stop by Cobblestone Café in downtown White Bear Lake for breakfast,
@@ -12,18 +16,28 @@ function ContactPage() {
       </section>
 
       <section className="contact-layout">
-        <div className="page-card">
+        <div className="page-card contact-info-card">
           <h2>Visit Us</h2>
-          <p>4760 Washington Square</p>
-          <p>White Bear Lake, MN 55110</p>
-          <p>
-            <strong>Phone:</strong>{' '}
-            <a href="tel:16514296793">(651) 429-6793</a>
-          </p>
-          <p>
-            <strong>Open Daily:</strong> 7 AM – 2 PM
-          </p>
-          <div className="page-actions">
+          <address className="contact-details">
+            <div>
+              <span>Address</span>
+              <strong>4760 Washington Square</strong>
+              <p>White Bear Lake, MN 55110</p>
+            </div>
+            <div>
+              <span>Phone</span>
+              <a href="tel:16514296793">(651) 429-6793</a>
+            </div>
+            <div>
+              <span>Hours</span>
+              <strong>Open Daily 7 AM – 2 PM</strong>
+            </div>
+          </address>
+
+          <div className="contact-actions" aria-label="Contact actions">
+            <a href="tel:16514296793" className="page-button">
+              Call Now
+            </a>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
               target="_blank"
@@ -32,6 +46,15 @@ function ContactPage() {
               aria-label="Get directions to Cobblestone Café on Google Maps"
             >
               Get Directions
+            </a>
+            <a
+              href={doordashUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="page-button"
+              aria-label="Order Cobblestone Café on DoorDash"
+            >
+              Order on DoorDash
             </a>
           </div>
         </div>
@@ -43,6 +66,10 @@ function ContactPage() {
             loading="lazy"
             allowFullScreen=""
           ></iframe>
+          <div className="contact-map-overlay" aria-hidden="true">
+            <span>Downtown White Bear Lake</span>
+            <strong>4760 Washington Square</strong>
+          </div>
         </div>
       </section>
     </main>

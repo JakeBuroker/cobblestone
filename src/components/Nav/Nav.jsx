@@ -5,6 +5,7 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
+const facebookUrl = 'https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/';
 
 const Nav = () => {
   return (
@@ -69,7 +70,7 @@ const Nav = () => {
             </li> */}
             <li className="fb-container">
               <a
-                href="https://www.facebook.com/cobblestonecafemn"
+                href={facebookUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="fb-icon"
