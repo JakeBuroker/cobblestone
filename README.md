@@ -1,10 +1,25 @@
 # Cobblestone Cafe Website
 
-Production website for Cobblestone Cafe & Malt Shoppe in downtown White Bear Lake, MN.
+Production website for Cobblestone Cafe & Malt Shoppe, a local breakfast, lunch, and malt shop in downtown White Bear Lake, Minnesota.
 
-Static React/Vite site deployed with Cloudflare Pages.
+The site is built as a static React/Vite app and is intended to deploy on Cloudflare Pages.
 
-## Quick Start
+## Features
+
+- Responsive homepage with cafe hours, location, history, reviews, Facebook, and DoorDash links
+- Mobile-friendly menu viewer with image carousel and downloadable PDFs
+- Contact page with phone, directions, ordering, and embedded map
+- Google Analytics event tracking for menu, phone, directions, review, Facebook, and order clicks
+- SEO basics: structured restaurant data, sitemap, robots.txt, social preview metadata, and privacy page
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- Cloudflare Pages
+
+## Local Development
 
 ```bash
 npm install
@@ -17,18 +32,18 @@ Use the localhost URL Vite prints, usually:
 http://127.0.0.1:5173/
 ```
 
-Do not test by opening `index.html` with a `file://` URL. Routing, assets, and environment variables are meant to run through Vite locally or Cloudflare Pages in production.
+Do not test by opening `index.html` directly with a `file://` URL. Routing, assets, and environment variables are meant to run through Vite locally or Cloudflare Pages in production.
 
-## Before Deploying
+## Checks
 
 ```bash
 npm run lint
 npm run build
 ```
 
-## Cloudflare Pages
+## Deployment
 
-Use these build settings:
+Cloudflare Pages settings:
 
 ```txt
 Framework preset: Vite
@@ -38,50 +53,36 @@ Root directory: /
 Production branch: main
 ```
 
-Set this production environment variable in Cloudflare Pages:
+Production environment variable:
 
 ```txt
 VITE_GA_MEASUREMENT_ID=G-LLJGEFCDEN
 ```
 
-Add these custom domains:
-
-```txt
-thecobblestonecafe.com
-www.thecobblestonecafe.com
-```
-
-Preferred canonical domain:
+Production domain:
 
 ```txt
 https://thecobblestonecafe.com
 ```
 
-## Common Edits
+## Common Updates
 
-Most business info and external links live here:
+Business info, hours, and external links:
 
 ```txt
 src/config/site.js
 ```
 
-Menu pages are managed here:
+Homepage:
+
+```txt
+src/pages/HomePage/
+public/images/
+```
+
+Menu page and menu files:
 
 ```txt
 src/pages/MenuPage/MenuPage.jsx
 public/menu/
-```
-
-Homepage content is mostly here:
-
-```txt
-src/pages/HomePage/HomePage.jsx
-src/pages/HomePage/HomePage.css
-public/images/
-```
-
-Extra maintenance notes live in:
-
-```txt
-docs/MAINTENANCE.md
 ```
