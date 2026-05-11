@@ -1,35 +1,31 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { trackEvent } from '../../utils/analytics';
-
-const doordashUrl =
-  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
-const facebookUrl = 'https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/';
+import { business, links } from '../../config/site';
 
 function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
         <div className="footer-contact">
-          <h4>Cobblestone Café</h4>
-          <p>4760 Washington Square</p>
-          <p>White Bear Lake, MN 55110</p>
+          <h4>{business.shortName}</h4>
+          <p>{business.addressLine1}</p>
+          <p>{business.addressLine2}</p>
           <p>
             <a
-              href="tel:16514296793"
+              href={business.phoneHref}
               onClick={() => trackEvent('phone_click', { location: 'footer' })}
             >
-              (651) 429-6793
+              {business.phoneDisplay}
             </a>
           </p>
-          <p>Open Daily: 7 AM – 2 PM</p>
+          <p>{business.hoursDisplay}</p>
         </div>
 
         <div className="footer-nav">
           <h4>Quick Links</h4>
           <Link to="/">Home</Link>
           <Link to="/menu">Menu</Link>
-          {/* <a href="/gallery">Gallery</a> */}
           <Link to="/contact">Contact</Link>
           <Link to="/privacy">Privacy</Link>
         </div>
@@ -37,7 +33,7 @@ function Footer() {
         <div className="footer-social">
           <h4>Order & Follow</h4>
           <a
-            href={doordashUrl}
+            href={links.doordash}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Order Cobblestone Café on DoorDash"
@@ -46,7 +42,7 @@ function Footer() {
             Order on DoorDash
           </a>
           <a
-            href={facebookUrl}
+            href={links.facebook}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Cobblestone Café on Facebook"
@@ -55,7 +51,7 @@ function Footer() {
             Facebook
           </a>
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+            href={links.directions}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get directions to Cobblestone Café on Google Maps"

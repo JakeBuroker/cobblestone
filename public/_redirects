@@ -1,1 +1,3 @@
+# React Router handles page routes in the browser. Cloudflare Pages should
+# serve index.html for deep links like /menu, /contact, and /privacy.
 /* /index.html 200

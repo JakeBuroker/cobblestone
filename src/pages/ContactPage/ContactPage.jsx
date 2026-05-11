@@ -1,8 +1,6 @@
 import '../PageStyles.css';
 import { trackEvent } from '../../utils/analytics';
-
-const doordashUrl =
-  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
+import { business, links } from '../../config/site';
 
 function ContactPage() {
   return (
@@ -22,16 +20,16 @@ function ContactPage() {
           <address className="contact-details">
             <div>
               <span>Address</span>
-              <strong>4760 Washington Square</strong>
-              <p>White Bear Lake, MN 55110</p>
+              <strong>{business.addressLine1}</strong>
+              <p>{business.addressLine2}</p>
             </div>
             <div>
               <span>Phone</span>
               <a
-                href="tel:16514296793"
+                href={business.phoneHref}
                 onClick={() => trackEvent('phone_click', { location: 'contact_details' })}
               >
-                (651) 429-6793
+                {business.phoneDisplay}
               </a>
             </div>
             <div>
@@ -42,14 +40,14 @@ function ContactPage() {
 
           <div className="contact-actions" aria-label="Contact actions">
             <a
-              href="tel:16514296793"
+              href={business.phoneHref}
               className="page-button"
               onClick={() => trackEvent('phone_click', { location: 'contact_actions' })}
             >
               Call Now
             </a>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+              href={links.directions}
               target="_blank"
               rel="noopener noreferrer"
               className="page-button"
@@ -59,7 +57,7 @@ function ContactPage() {
               Get Directions
             </a>
             <a
-              href={doordashUrl}
+              href={links.doordash}
               target="_blank"
               rel="noopener noreferrer"
               className="page-button"
@@ -80,7 +78,7 @@ function ContactPage() {
           ></iframe>
           <div className="contact-map-overlay" aria-hidden="true">
             <span>Downtown White Bear Lake</span>
-            <strong>4760 Washington Square</strong>
+            <strong>{business.addressLine1}</strong>
           </div>
         </div>
       </section>

@@ -1,11 +1,10 @@
 import ReviewCard from '../ReviewCard/ReviewCard';
 import './GoogleReviews.css';
 import { trackEvent } from '../../utils/analytics';
+import { links } from '../../config/site';
 
-const googleReviewsUrl = 'https://www.google.com/search?q=cobblestone+cafe';
-const leaveGoogleReviewUrl =
-  'https://www.google.com/search?hl=en-US&gl=us&q=Cobblestone+Cafe+White+Bear+Lake&ludocid=3683316472087071053#lrd=0x52b2d0e996108a15:0x331dc4d0fa18494d,3';
-
+// Hand-picked Google reviews. We keep dates out of the UI so the section stays
+// accurate without needing Google Places API access.
 const reviews = [
   {
     author_name: 'Caroline Manfredi',
@@ -49,7 +48,7 @@ function GoogleReviews() {
         </p>
         <div>
           <a
-            href={googleReviewsUrl}
+            href={links.googleReviews}
             target="_blank"
             rel="noopener noreferrer"
             className="google-link"
@@ -58,7 +57,7 @@ function GoogleReviews() {
             Read More on Google
           </a>
           <a
-            href={leaveGoogleReviewUrl}
+            href={links.leaveGoogleReview}
             target="_blank"
             rel="noopener noreferrer"
             className="google-link"

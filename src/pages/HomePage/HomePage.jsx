@@ -2,14 +2,7 @@ import { Link } from "react-router-dom";
 import "./HomePage.css";
 import GoogleReviews from "../../components/GoogleReviews/GoogleReviews";
 import { trackEvent } from "../../utils/analytics";
-
-const doordashUrl =
-  "https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/";
-const facebookUrl = "https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/";
-const facebookFeedUrl =
-  "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100042647630381&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true";
-const maltShoppeHistoryUrl =
-  "https://whitebearlakemag.com/malt-shoppe-was-delicious-mainstay-downtown-white-bear-lake/";
+import { business, links } from "../../config/site";
 
 const Home = () => {
   return (
@@ -28,11 +21,11 @@ const Home = () => {
           </p>
           <div className="hero-meta" aria-label="Cafe hours and location">
             <span>Open Daily 7 AM – 2 PM</span>
-            <span>4760 Washington Square</span>
+            <span>{business.addressLine1}</span>
           </div>
           <div className="hero-actions">
             <a
-              href={doordashUrl}
+              href={links.doordash}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-button hero-button-primary"
@@ -49,7 +42,7 @@ const Home = () => {
               View Menu
             </Link>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+              href={links.directions}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-button hero-button-ghost"
@@ -81,15 +74,15 @@ const Home = () => {
           <div className="location-details" aria-label="Cobblestone Cafe visit details">
             <div>
               <span>Address</span>
-              <strong>4760 Washington Square, White Bear Lake, MN</strong>
+              <strong>{business.addressShort}</strong>
             </div>
             <div>
               <span>Phone</span>
               <a
-                href="tel:16514296793"
+                href={business.phoneHref}
                 onClick={() => trackEvent("phone_click", { location: "home_location" })}
               >
-                (651) 429-6793
+                {business.phoneDisplay}
               </a>
             </div>
             <div>
@@ -99,7 +92,7 @@ const Home = () => {
           </div>
 
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+            href={links.directions}
             target="_blank"
             rel="noopener noreferrer"
             className="directions-button"
@@ -129,7 +122,7 @@ const Home = () => {
             See the Full Menu
           </Link>
           <a
-            href={doordashUrl}
+            href={links.doordash}
             target="_blank"
             rel="noopener noreferrer"
             className="order-link"
@@ -209,7 +202,7 @@ const Home = () => {
             easy comfort of a cafe that has always belonged downtown.
           </p>
           <a
-            href={maltShoppeHistoryUrl}
+            href={links.localHistory}
             target="_blank"
             rel="noopener noreferrer"
             className="learn-more-button"
@@ -231,7 +224,7 @@ const Home = () => {
             a menu.
           </p>
           <a
-            href={facebookUrl}
+            href={links.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="facebook-link"
@@ -245,7 +238,7 @@ const Home = () => {
         <div className="facebook-feed-card">
           <iframe
             title="Cobblestone Café Facebook feed"
-            src={facebookFeedUrl}
+            src={links.facebookFeed}
             width="500"
             height="640"
             style={{ border: 0, overflow: "hidden" }}
@@ -258,7 +251,7 @@ const Home = () => {
             <span>Facebook Page</span>
             <strong>Latest posts open on Facebook</strong>
             <a
-              href={facebookUrl}
+              href={links.facebook}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("facebook_click", { location: "home_facebook_fallback" })}

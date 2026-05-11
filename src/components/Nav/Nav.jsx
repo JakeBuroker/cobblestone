@@ -3,10 +3,7 @@ import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { trackEvent } from '../../utils/analytics';
-
-const doordashUrl =
-  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
-const facebookUrl = 'https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/';
+import { business, links } from '../../config/site';
 
 const Nav = () => {
   return (
@@ -17,15 +14,15 @@ const Nav = () => {
       <div className="nav-grid">
         <div className="nav-left">
           <div className="contact-info">
-            <p>4760 Washington Square</p>
-            <p>White Bear Lake, MN 55110</p>
+            <p>{business.addressLine1}</p>
+            <p>{business.addressLine2}</p>
             <a
-              href="tel:16514296793"
+              href={business.phoneHref}
               onClick={() => trackEvent('phone_click', { location: 'header' })}
             >
-              (651) 429-6793
+              {business.phoneDisplay}
             </a>
-            <p>Open Daily: 7 AM – 2 PM</p>
+            <p>{business.hoursDisplay}</p>
           </div>
         </div>
 
@@ -61,7 +58,7 @@ const Nav = () => {
             </li>
             <li>
               <a
-                href={doordashUrl}
+                href={links.doordash}
                 target="_blank"
                 rel="noreferrer"
                 className="order-nav-link"
@@ -70,14 +67,9 @@ const Nav = () => {
                 Order Online
               </a>
             </li>
-            {/* <li>
-              <NavLink to="/gallery" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Gallery
-              </NavLink>
-            </li> */}
             <li className="fb-container">
               <a
-                href={facebookUrl}
+                href={links.facebook}
                 target="_blank"
                 rel="noreferrer"
                 className="fb-icon"

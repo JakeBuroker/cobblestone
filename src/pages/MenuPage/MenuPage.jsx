@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 import '../PageStyles.css';
 import { trackEvent } from '../../utils/analytics';
+import { links } from '../../config/site';
 
-const doordashUrl =
-  'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
-
+// These are the public menu pages shown in the carousel. Keep this array in the
+// order customers should browse: breakfast first, then lunch, then kids/seniors.
+// Every entry needs a JPG image for fast viewing and a matching PDF for download.
 const menuFiles = [
   {
     title: 'All-Day Breakfast',
@@ -217,7 +218,7 @@ function MenuPage() {
           Want Cobblestone at home? Order breakfast or lunch through DoorDash.
         </p>
         <a
-          href={doordashUrl}
+          href={links.doordash}
           target="_blank"
           rel="noopener noreferrer"
           className="page-button"

@@ -2,6 +2,9 @@ const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 let analyticsInitialized = false;
 
+// Analytics is intentionally tiny: no cookies or customer data are managed here.
+// Vite injects VITE_GA_MEASUREMENT_ID from .env.development locally and from the
+// Cloudflare Pages environment variable in production.
 export function initAnalytics() {
   if (analyticsInitialized || !measurementId || typeof window === 'undefined') {
     return;
