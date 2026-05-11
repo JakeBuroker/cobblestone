@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { trackEvent } from '../../utils/analytics';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
@@ -14,7 +15,12 @@ function Footer() {
           <p>4760 Washington Square</p>
           <p>White Bear Lake, MN 55110</p>
           <p>
-            <a href="tel:16514296793">(651) 429-6793</a>
+            <a
+              href="tel:16514296793"
+              onClick={() => trackEvent('phone_click', { location: 'footer' })}
+            >
+              (651) 429-6793
+            </a>
           </p>
           <p>Open Daily: 7 AM – 2 PM</p>
         </div>
@@ -25,6 +31,7 @@ function Footer() {
           <Link to="/menu">Menu</Link>
           {/* <a href="/gallery">Gallery</a> */}
           <Link to="/contact">Contact</Link>
+          <Link to="/privacy">Privacy</Link>
         </div>
 
         <div className="footer-social">
@@ -34,6 +41,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Order Cobblestone Café on DoorDash"
+            onClick={() => trackEvent('order_online_click', { location: 'footer' })}
           >
             Order on DoorDash
           </a>
@@ -42,6 +50,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Cobblestone Café on Facebook"
+            onClick={() => trackEvent('facebook_click', { location: 'footer' })}
           >
             Facebook
           </a>
@@ -50,6 +59,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get directions to Cobblestone Café on Google Maps"
+            onClick={() => trackEvent('directions_click', { location: 'footer' })}
           >
             Get Directions
           </a>

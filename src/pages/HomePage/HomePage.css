@@ -2,9 +2,9 @@
 .hero {
   position: relative;
   min-height: 58vh;
-  background-image: url('/images/0fd7cb_aa647b4e97434d6d9df4ee084efd8231~mv2.avif');
+  background-image: url('/images/cobblestone-cafe-exterior.webp');
   background-size: cover;
-  background-position: center;
+  background-position: center 42%;
   background-attachment: fixed;
   display: flex;
   align-items: center;
@@ -21,8 +21,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(42, 28, 18, 0.18), rgba(42, 28, 18, 0.58)),
-    rgba(42, 28, 18, 0.16);
+    linear-gradient(90deg, rgba(28, 19, 14, 0.66), rgba(28, 19, 14, 0.28) 48%, rgba(28, 19, 14, 0.42)),
+    linear-gradient(rgba(42, 28, 18, 0.12), rgba(42, 28, 18, 0.5));
 }
 
 .hero-content {
@@ -240,6 +240,38 @@
   color: #4c433b;
 }
 
+.content-block .text p + p {
+  margin-top: 0.85rem;
+}
+
+.heritage-block {
+  max-width: 1080px;
+  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+  background:
+    linear-gradient(135deg, rgba(0, 128, 128, 0.045), transparent 36%),
+    #fffdf9;
+  border: 1px solid rgba(119, 86, 58, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(72, 48, 28, 0.07);
+}
+
+.story-images {
+  justify-content: center;
+}
+
+.historic-image {
+  filter: saturate(0.78) contrast(1.04);
+}
+
+.image-credit {
+  max-width: 480px;
+  color: #786f66;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
 /* ===== BUTTON STYLES ===== */
 .menu-link,
 .learn-more-button,
@@ -303,6 +335,10 @@
 
 .hours-location-section .text {
   max-width: 500px;
+}
+
+.hours-location-section .directions-button {
+  margin-top: 1.35rem;
 }
 
 .location-details {

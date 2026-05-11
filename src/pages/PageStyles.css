@@ -402,6 +402,32 @@
   font-size: 1rem;
 }
 
+.privacy-hero {
+  margin-bottom: 2rem;
+}
+
+.privacy-content {
+  display: grid;
+  gap: 1rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.privacy-content .page-card {
+  background:
+    linear-gradient(135deg, rgba(0, 128, 128, 0.05), transparent 36%),
+    #fffdf9;
+}
+
+.privacy-content .page-card p + p {
+  margin-top: 0.75rem;
+}
+
+.privacy-updated {
+  color: #786f66 !important;
+  font-size: 0.92rem !important;
+}
+
 @media (max-width: 850px) {
   .page-grid,
   .contact-layout {
@@ -432,8 +458,22 @@
 }
 
 @media (max-width: 540px) {
+  .page-shell:has(.menu-carousel) {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .menu-hero {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
   .menu-carousel-header {
-    padding: 1rem;
+    padding: 0.85rem;
+  }
+
+  .menu-carousel-header p:not(.menu-kicker) {
+    display: none;
   }
 
   .menu-carousel-button {
@@ -452,16 +492,20 @@
   }
 
   .menu-image-stage {
-    justify-items: center;
+    justify-items: start;
     max-height: none;
-    overflow: hidden;
-    padding: 0.65rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
   }
 
   .menu-image {
-    width: 100%;
-    max-width: 100%;
+    width: max(100%, 620px);
+    max-width: none;
     max-height: none;
+    scroll-snap-align: start;
   }
 
   .menu-download-actions {

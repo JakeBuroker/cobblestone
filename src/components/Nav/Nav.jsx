@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { trackEvent } from '../../utils/analytics';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
@@ -18,7 +19,12 @@ const Nav = () => {
           <div className="contact-info">
             <p>4760 Washington Square</p>
             <p>White Bear Lake, MN 55110</p>
-            <a href="tel:16514296793">(651) 429-6793</a>
+            <a
+              href="tel:16514296793"
+              onClick={() => trackEvent('phone_click', { location: 'header' })}
+            >
+              (651) 429-6793
+            </a>
             <p>Open Daily: 7 AM – 2 PM</p>
           </div>
         </div>
@@ -59,6 +65,7 @@ const Nav = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="order-nav-link"
+                onClick={() => trackEvent('order_online_click', { location: 'header_nav' })}
               >
                 Order Online
               </a>
@@ -75,6 +82,7 @@ const Nav = () => {
                 rel="noreferrer"
                 className="fb-icon"
                 aria-label="Cobblestone Café on Facebook"
+                onClick={() => trackEvent('facebook_click', { location: 'header_nav' })}
               >
                 <FontAwesomeIcon icon={faFacebookSquare} />
               </a>

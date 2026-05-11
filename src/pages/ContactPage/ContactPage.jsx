@@ -1,4 +1,5 @@
 import '../PageStyles.css';
+import { trackEvent } from '../../utils/analytics';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
@@ -26,7 +27,12 @@ function ContactPage() {
             </div>
             <div>
               <span>Phone</span>
-              <a href="tel:16514296793">(651) 429-6793</a>
+              <a
+                href="tel:16514296793"
+                onClick={() => trackEvent('phone_click', { location: 'contact_details' })}
+              >
+                (651) 429-6793
+              </a>
             </div>
             <div>
               <span>Hours</span>
@@ -35,7 +41,11 @@ function ContactPage() {
           </address>
 
           <div className="contact-actions" aria-label="Contact actions">
-            <a href="tel:16514296793" className="page-button">
+            <a
+              href="tel:16514296793"
+              className="page-button"
+              onClick={() => trackEvent('phone_click', { location: 'contact_actions' })}
+            >
               Call Now
             </a>
             <a
@@ -44,6 +54,7 @@ function ContactPage() {
               rel="noopener noreferrer"
               className="page-button"
               aria-label="Get directions to Cobblestone Café on Google Maps"
+              onClick={() => trackEvent('directions_click', { location: 'contact_actions' })}
             >
               Get Directions
             </a>
@@ -53,6 +64,7 @@ function ContactPage() {
               rel="noopener noreferrer"
               className="page-button"
               aria-label="Order Cobblestone Café on DoorDash"
+              onClick={() => trackEvent('order_online_click', { location: 'contact_actions' })}
             >
               Order on DoorDash
             </a>

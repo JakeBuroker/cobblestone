@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './ReviewCard.css';
+import { trackEvent } from '../../utils/analytics';
 
 function ReviewCard({ review }) {
   const [avatarFailed, setAvatarFailed] = useState(false);
@@ -16,6 +17,9 @@ function ReviewCard({ review }) {
       target="_blank"
       rel="noopener noreferrer"
       className="review-card"
+      onClick={() =>
+        trackEvent('google_review_card_click', { reviewer: review.author_name })
+      }
     >
       <div className="review-header">
         <div className="review-profile">

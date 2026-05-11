@@ -1,5 +1,10 @@
 import ReviewCard from '../ReviewCard/ReviewCard';
 import './GoogleReviews.css';
+import { trackEvent } from '../../utils/analytics';
+
+const googleReviewsUrl = 'https://www.google.com/search?q=cobblestone+cafe';
+const leaveGoogleReviewUrl =
+  'https://www.google.com/search?hl=en-US&gl=us&q=Cobblestone+Cafe+White+Bear+Lake&ludocid=3683316472087071053#lrd=0x52b2d0e996108a15:0x331dc4d0fa18494d,3';
 
 const reviews = [
   {
@@ -37,14 +42,32 @@ function GoogleReviews() {
           <ReviewCard key={index} review={review} />
         ))}
       </div>
-      <a
-        href="https://www.google.com/search?q=cobblestone+cafe"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="google-link"
-      >
-        Read More on Google
-      </a>
+      <div className="review-actions">
+        <p>
+          Loved your breakfast, lunch, or malt? A quick Google review helps other
+          White Bear Lake neighbors find Cobblestone.
+        </p>
+        <div>
+          <a
+            href={googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="google-link"
+            onClick={() => trackEvent('google_reviews_click', { location: 'reviews_section' })}
+          >
+            Read More on Google
+          </a>
+          <a
+            href={leaveGoogleReviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="google-link"
+            onClick={() => trackEvent('leave_review_click', { location: 'reviews_section' })}
+          >
+            Leave a Google Review
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

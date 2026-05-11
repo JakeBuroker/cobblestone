@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import GoogleReviews from "../../components/GoogleReviews/GoogleReviews";
+import { trackEvent } from "../../utils/analytics";
 
 const doordashUrl =
   "https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/";
 const facebookUrl = "https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/";
 const facebookFeedUrl =
   "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100042647630381&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true";
+const maltShoppeHistoryUrl =
+  "https://whitebearlakemag.com/malt-shoppe-was-delicious-mainstay-downtown-white-bear-lake/";
 
 const Home = () => {
   return (
@@ -19,8 +22,9 @@ const Home = () => {
             Cobblestone Café
           </h1>
           <p className="hero-copy">
-            Breakfast, lunch, coffee, and classic malt shop favorites served
-            daily in downtown White Bear Lake.
+            A downtown White Bear Lake breakfast and lunch spot with malt shop
+            roots, family history, and the kind of regulars who know what they
+            are ordering before they sit down.
           </p>
           <div className="hero-meta" aria-label="Cafe hours and location">
             <span>Open Daily 7 AM – 2 PM</span>
@@ -33,10 +37,15 @@ const Home = () => {
               rel="noopener noreferrer"
               className="hero-button hero-button-primary"
               aria-label="Order Cobblestone Café on DoorDash"
+              onClick={() => trackEvent("order_online_click", { location: "home_hero" })}
             >
               Order on DoorDash
             </a>
-            <Link to="/menu" className="hero-button hero-button-secondary">
+            <Link
+              to="/menu"
+              className="hero-button hero-button-secondary"
+              onClick={() => trackEvent("menu_click", { location: "home_hero" })}
+            >
               View Menu
             </Link>
             <a
@@ -45,6 +54,7 @@ const Home = () => {
               rel="noopener noreferrer"
               className="hero-button hero-button-ghost"
               aria-label="Get directions to Cobblestone Café on Google Maps"
+              onClick={() => trackEvent("directions_click", { location: "home_hero" })}
             >
               Get Directions
             </a>
@@ -52,40 +62,15 @@ const Home = () => {
         </div>
       </header>
 
-      {/* OUR STORY */}
-      <section className="content-block">
-        <div className="images">
-          <img
-            src="/images/8d5b13da0ec52802dc87fa96f56e9d65.jpg"
-            alt="Cobblestone Café mug on a breakfast table"
-            className="main-image"
-            width="1440"
-            height="1677"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="text">
-          <p className="section-kicker">Family-owned local favorite</p>
-          <h2>Our Story</h2>
-          <p>
-            Nestled in the heart of White Bear Lake, Cobblestone Café has served
-            homemade meals and warm coffee to our community for over 20 years.
-            Locally loved and family-owned, we believe in flavor, comfort, and
-            connection.
-          </p>
-        </div>
-      </section>
-
       {/* HOURS / LOCATION */}
       <section className="content-block reverse hours-location-section">
         <div className="images">
           <img
-            src="/images/52248125492_9384570133_b.jpg"
-            alt="Cobblestone Café storefront in downtown White Bear Lake"
+            src="/images/8d5b13da0ec52802dc87fa96f56e9d65.jpg"
+            alt="Coffee being poured into a Cobblestone Café mug"
             className="main-image"
-            width="1024"
-            height="683"
+            width="1440"
+            height="1677"
             loading="lazy"
             decoding="async"
           />
@@ -100,7 +85,12 @@ const Home = () => {
             </div>
             <div>
               <span>Phone</span>
-              <a href="tel:16514296793">(651) 429-6793</a>
+              <a
+                href="tel:16514296793"
+                onClick={() => trackEvent("phone_click", { location: "home_location" })}
+              >
+                (651) 429-6793
+              </a>
             </div>
             <div>
               <span>Hours</span>
@@ -108,33 +98,18 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="map-wrapper">
-            <iframe
-              title="Map to Cobblestone Café"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.0282134758922!2d-93.008888!3d45.085221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b2d0e996108a15%3A0x331dc4d0fa18494d!2sCobblestone%20Cafe!5e0!3m2!1sen!2sus!4v1748386419499!5m2!1sen!2sus"
-              width="100%"
-              height="300"
-              style={{
-                border: 0,
-                borderRadius: "8px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-              }}
-              loading="lazy"
-              allowFullScreen=""
-            ></iframe>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="directions-button"
-              aria-label="Get directions to Cobblestone Café on Google Maps"
-            >
-              Get Directions
-            </a>
-          </div>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="directions-button"
+            aria-label="Get directions to Cobblestone Café on Google Maps"
+            onClick={() => trackEvent("directions_click", { location: "home_location" })}
+          >
+            Get Directions
+          </a>
         </div>
       </section>
-
 
       {/* MENU PREVIEW */}
       <section className="content-block reverse menu-preview">
@@ -142,11 +117,15 @@ const Home = () => {
           <p className="section-kicker">Breakfast, lunch & malts</p>
           <h2>What’s on the Menu</h2>
           <p>
-            From hearty breakfasts to fresh, handcrafted lunches and classic
-            malts — there’s something for everyone. Come in hungry, leave full
-            and happy.
+            The menu leans into the good stuff: eggs and hash browns, pancakes,
+            Benedicts, burgers, sandwiches, soups, hot dogs, kids meals, and
+            classic malts. It is everyday cafe food done the way regulars expect it.
           </p>
-          <Link to="/menu" className="menu-link">
+          <Link
+            to="/menu"
+            className="menu-link"
+            onClick={() => trackEvent("menu_click", { location: "home_menu_preview" })}
+          >
             See the Full Menu
           </Link>
           <a
@@ -155,6 +134,7 @@ const Home = () => {
             rel="noopener noreferrer"
             className="order-link"
             aria-label="Order Cobblestone Café on DoorDash"
+            onClick={() => trackEvent("order_online_click", { location: "home_menu_preview" })}
           >
             Order on DoorDash
           </a>
@@ -162,10 +142,10 @@ const Home = () => {
         <div className="images-grid">
           <img
             src="/images/roll.jpg"
-            alt="Fresh pastry served at Cobblestone Café"
+            alt="Glazed cinnamon roll served at Cobblestone Café"
             className="grid-img"
-            width="180"
-            height="180"
+            width="900"
+            height="1200"
             loading="lazy"
             decoding="async"
           />
@@ -199,14 +179,56 @@ const Home = () => {
         </div>
       </section>
 
+      {/* HISTORY */}
+      <section className="content-block reverse heritage-block">
+        <div className="images story-images">
+          <img
+            src="/images/mr-t-diner-washington-avenue.jpg"
+            alt="Historic Washington Avenue view showing Mr. T Diner in downtown White Bear Lake"
+            className="main-image historic-image"
+            width="798"
+            height="544"
+            loading="lazy"
+            decoding="async"
+          />
+          <p className="image-credit">
+            Historic Washington Avenue photo, ca. 1970, via White Bear Lake
+            Magazine and the White Bear Lake Area Historical Society.
+          </p>
+        </div>
+        <div className="text">
+          <p className="section-kicker">Downtown roots</p>
+          <h2>From Malt Shoppe to Mr. T to Cobblestone</h2>
+          <p>
+            This corner has been feeding White Bear Lake for generations. Before
+            it became Cobblestone Café, the space was remembered as Mr. T Diner
+            and, before that, part of the downtown Malt Shoppe story.
+          </p>
+          <p>
+            You can still feel that history in the malts, the regulars, and the
+            easy comfort of a cafe that has always belonged downtown.
+          </p>
+          <a
+            href={maltShoppeHistoryUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="learn-more-button"
+            onClick={() => trackEvent("history_article_click", { location: "home_story" })}
+          >
+            Read the Local History
+          </a>
+        </div>
+      </section>
+
       {/* FACEBOOK */}
       <section className="facebook-section" aria-labelledby="facebook-heading">
         <div className="facebook-copy">
           <p className="section-kicker">Follow along</p>
           <h2 id="facebook-heading">Find Us on Facebook</h2>
           <p>
-            Follow Cobblestone Café for recent posts, updates, specials, and
-            local café moments.
+            Follow Cobblestone Café for current posts, specials, updates, and
+            the small-town breakfast counter energy that does not always fit on
+            a menu.
           </p>
           <a
             href={facebookUrl}
@@ -214,6 +236,7 @@ const Home = () => {
             rel="noopener noreferrer"
             className="facebook-link"
             aria-label="Follow Cobblestone Café on Facebook"
+            onClick={() => trackEvent("facebook_click", { location: "home_facebook" })}
           >
             Follow on Facebook
           </a>
@@ -234,7 +257,12 @@ const Home = () => {
           <div className="facebook-feed-fallback">
             <span>Facebook Page</span>
             <strong>Latest posts open on Facebook</strong>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("facebook_click", { location: "home_facebook_fallback" })}
+            >
               View Updates
             </a>
           </div>

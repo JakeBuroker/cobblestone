@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import '../PageStyles.css';
+import { trackEvent } from '../../utils/analytics';
 
 const doordashUrl =
   'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/';
@@ -63,15 +64,25 @@ function MenuPage() {
   const activeMenu = menuFiles[activeIndex];
 
   const goToPrevious = () => {
-    setActiveIndex((currentIndex) =>
-      currentIndex === 0 ? menuFiles.length - 1 : currentIndex - 1,
-    );
+    setActiveIndex((currentIndex) => {
+      const nextIndex = currentIndex === 0 ? menuFiles.length - 1 : currentIndex - 1;
+      trackEvent('menu_carousel_click', {
+        direction: 'previous',
+        menu_title: menuFiles[nextIndex].title,
+      });
+      return nextIndex;
+    });
   };
 
   const goToNext = () => {
-    setActiveIndex((currentIndex) =>
-      currentIndex === menuFiles.length - 1 ? 0 : currentIndex + 1,
-    );
+    setActiveIndex((currentIndex) => {
+      const nextIndex = currentIndex === menuFiles.length - 1 ? 0 : currentIndex + 1;
+      trackEvent('menu_carousel_click', {
+        direction: 'next',
+        menu_title: menuFiles[nextIndex].title,
+      });
+      return nextIndex;
+    });
   };
 
   return (
@@ -92,7 +103,10 @@ function MenuPage() {
               type="button"
               key={item.image}
               className={`menu-file-tab${index === activeIndex ? ' is-active' : ''}`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index);
+                trackEvent('menu_section_click', { menu_title: item.title });
+              }}
               aria-pressed={index === activeIndex}
             >
               <span>{item.section}</span>
@@ -179,10 +193,18 @@ function MenuPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${activeMenu.title} menu image in a new tab`}
+              onClick={() =>
+                trackEvent('menu_full_size_image_click', { menu_title: activeMenu.title })
+              }
             >
               Open full-size image
             </a>
-            <a href={activeMenu.pdf} download aria-label={`Download ${activeMenu.title} PDF`}>
+            <a
+              href={activeMenu.pdf}
+              download
+              aria-label={`Download ${activeMenu.title} PDF`}
+              onClick={() => trackEvent('menu_pdf_download_click', { menu_title: activeMenu.title })}
+            >
               Download PDF
             </a>
           </div>
@@ -200,6 +222,7 @@ function MenuPage() {
           rel="noopener noreferrer"
           className="page-button"
           aria-label="Order Cobblestone Café on DoorDash"
+          onClick={() => trackEvent('order_online_click', { location: 'menu_order_card' })}
         >
           Order on DoorDash
         </a>

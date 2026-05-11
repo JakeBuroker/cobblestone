@@ -188,20 +188,38 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .logo {
-    max-height: 132px;
+    max-height: 126px;
   }
 
   .nav-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-    text-align: center;
-    padding: 0 1rem;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "logo contact"
+      "links links";
+    justify-content: center;
+    gap: 0.75rem 1.75rem;
+    text-align: left;
+    padding: 0 1.25rem;
   }
 
-  .nav-left,
-  .nav-center,
+  .logo-link {
+    grid-area: logo;
+    justify-self: end;
+  }
+
+  .nav-left {
+    grid-area: contact;
+    justify-self: start;
+  }
+
+  .nav-center {
+    justify-self: end;
+  }
+
   .nav-right {
+    grid-area: links;
     justify-self: center;
+    width: 100%;
   }
 
   .nav-links {
@@ -212,6 +230,7 @@
 
   .contact-info {
     font-size: 0.9rem;
+    padding: 0.78rem 0.95rem;
   }
 }
 
@@ -251,6 +270,7 @@
 
   .logo-link {
     grid-area: logo;
+    justify-self: start;
   }
 
   .nav-center {
