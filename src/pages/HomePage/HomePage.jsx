@@ -45,11 +45,7 @@ const Home = () => {
           <h1 className="hero-heading">
             Cobblestone Café
           </h1>
-          <p className="hero-copy">
-            A downtown White Bear Lake breakfast and lunch spot with malt shop
-            roots, family history, and the kind of regulars who know what they
-            are ordering before they sit down.
-          </p>
+          <div className="hero-copy-spacer" aria-hidden="true"></div>
           <div className="hero-meta" aria-label="Cafe hours and location">
             <span>Open Daily 7 AM – 2 PM</span>
             <span>{business.addressLine1}</span>
