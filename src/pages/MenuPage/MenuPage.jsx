@@ -151,6 +151,10 @@ function MenuPage() {
           </div>
 
           <div className="menu-image-stage">
+            <div className="menu-mobile-current" aria-live="polite">
+              <span>{activeMenu.section}</span>
+              <strong>{activeMenu.title}</strong>
+            </div>
             <img
               key={activeMenu.image}
               src={activeMenu.image}
