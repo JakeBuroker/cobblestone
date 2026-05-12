@@ -32,7 +32,7 @@ const Home = () => {
   }, []);
 
   const facebookFeedUrl = useMemo(() => {
-    const pageUrl = encodeURIComponent(links.facebook);
+    const pageUrl = encodeURIComponent(links.facebookPluginPage);
     return `https://www.facebook.com/plugins/page.php?href=${pageUrl}&tabs=timeline&width=${facebookFeedWidth}&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
   }, [facebookFeedWidth]);
 
