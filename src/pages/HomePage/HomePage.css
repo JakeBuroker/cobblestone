@@ -485,6 +485,8 @@
 .facebook-feed-card {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  min-width: 0;
   background:
     linear-gradient(135deg, rgba(0, 128, 128, 0.08), transparent 44%),
     #eee7dd;
@@ -498,7 +500,7 @@
   z-index: 1;
   display: block;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   min-height: 640px;
   margin: 0 auto;
   background: #fff;

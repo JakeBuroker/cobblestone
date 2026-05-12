@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import GoogleReviews from "../../components/GoogleReviews/GoogleReviews";
@@ -5,6 +6,36 @@ import { trackEvent } from "../../utils/analytics";
 import { business, links } from "../../config/site";
 
 const Home = () => {
+  const facebookFeedRef = useRef(null);
+  const [facebookFeedWidth, setFacebookFeedWidth] = useState(500);
+
+  useEffect(() => {
+    const updateFeedWidth = () => {
+      if (!facebookFeedRef.current) {
+        return;
+      }
+
+      const nextWidth = Math.floor(facebookFeedRef.current.clientWidth);
+      setFacebookFeedWidth(Math.min(500, Math.max(260, nextWidth)));
+    };
+
+    updateFeedWidth();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateFeedWidth);
+      return () => window.removeEventListener("resize", updateFeedWidth);
+    }
+
+    const observer = new ResizeObserver(updateFeedWidth);
+    observer.observe(facebookFeedRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const facebookFeedUrl = useMemo(() => {
+    const pageUrl = encodeURIComponent(links.facebook);
+    return `https://www.facebook.com/plugins/page.php?href=${pageUrl}&tabs=timeline&width=${facebookFeedWidth}&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
+  }, [facebookFeedWidth]);
+
   return (
     <main id="main-content">
       {/* HERO */}
@@ -235,11 +266,11 @@ const Home = () => {
           </a>
         </div>
 
-        <div className="facebook-feed-card">
+        <div className="facebook-feed-card" ref={facebookFeedRef}>
           <iframe
             title="Cobblestone Café Facebook feed"
-            src={links.facebookFeed}
-            width="500"
+            src={facebookFeedUrl}
+            width={facebookFeedWidth}
             height="640"
             style={{ border: 0, overflow: "hidden" }}
             scrolling="no"

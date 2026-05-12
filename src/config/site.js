@@ -17,8 +17,6 @@ export const links = {
   doordash:
     'https://www.doordash.com/store/cobblestone-cafe-white-bear-lake-581572/793365/',
   facebook: 'https://www.facebook.com/people/Cobblestone-Cafe/100042647630381/',
-  facebookFeed:
-    'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100042647630381&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true',
   directions:
     'https://www.google.com/maps/dir/?api=1&destination=Cobblestone+Cafe+White+Bear+Lake+MN',
   googleReviews: 'https://www.google.com/search?q=cobblestone+cafe',
