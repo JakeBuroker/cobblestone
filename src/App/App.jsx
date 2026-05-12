@@ -7,6 +7,7 @@ import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import PrivacyPage from '../pages/PrivacyPage/PrivacyPage';
 import Footer from '../components/Footer/Footer';
 import Analytics from '../components/Analytics/Analytics';
+import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import './App.css';
 
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <Analytics />
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
